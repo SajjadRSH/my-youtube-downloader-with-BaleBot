@@ -1251,7 +1251,7 @@ jobs:
             UPLOAD_SUCCESS=false
             
             while [ $RETRY -lt $MAX_RETRIES ]; do
-              RESPONSE=$(curl -s -X POST "${API_BASE_URL}/bot${BOT_TOKEN}/sendVideo" \
+              RESPONSE=$(curl -s -X POST "${API_BASE_URL}/bot${BOT_TOKEN}/sendDocument" \
                 -F "chat_id=${BALE_USER_ID}" \
                 -F "video=@${VIDEO_FILE}" \
                 -F "caption=✅ $FILE_NAME" \
