@@ -155,8 +155,7 @@ jobs:
           mkdir -p videos
           > /tmp/video_info.txt
 
-          echo "AVASAM YouTube Downloader"
-          echo "https://avasam.ir"
+          echo "SajjadRSH YouTube Downloader"
           echo ""
           echo "Total URLs to download: $TOTAL_URLS"
           echo "Quality: $QUALITY"
@@ -702,7 +701,7 @@ jobs:
                   printf '%s\n' ""
                   printf '%s\n' "---"
                   printf '%s\n' ""
-                  printf '%s\n' "*This tool created by [avasam.ir](https://avasam.ir)*"
+                  printf '%s\n' "*This tool created by [SajjadRSH]*"
                 } > "$README_FILE"
 
                 echo "Created README.md"
@@ -768,7 +767,7 @@ jobs:
                     printf '%s\n' ""
                     printf '%s\n' "---"
                     printf '%s\n' ""
-                    printf '%s\n' "*This tool created by [avasam.ir](https://avasam.ir)*"
+                    printf '%s\n' "*This tool created by [SajjadRSH]*"
                   } > "$README_FILE"
 
                   echo "Created password-protected zip archive and README.md"
@@ -824,7 +823,7 @@ jobs:
                     printf '%s\n' ""
                     printf '%s\n' "---"
                     printf '%s\n' ""
-                    printf '%s\n' "*This tool created by [avasam.ir](https://avasam.ir)*"
+                    printf '%s\n' "*This tool created by [SajjadRSH]*"
                   } > "$README_FILE"
 
                   echo "Copied file and created README.md"
@@ -1297,7 +1296,7 @@ jobs:
           REPO_OWNER="${{ github.repository_owner }}"
           REPO_NAME="${{ github.event.repository.name }}"
 
-          echo "AVASAM (https://avasam.ir) - Incremental Push Mode"
+          echo "SajjadRSH - Incremental Push Mode"
           echo "This method pushes files ONE AT A TIME to avoid timeout issues"
           echo ""
 
@@ -1326,7 +1325,7 @@ jobs:
               } > videos/README.md
               git add videos/README.md
               if ! git diff --cached --quiet; then
-                git commit -m "[AVASAM] Initialize videos folder [skip ci]"
+                git commit -m "[SajjadRSH] Initialize videos folder [skip ci]"
                 PUSH_RETRY=0
                 while [ $PUSH_RETRY -lt 5 ]; do
                   PUSH_RETRY=$((PUSH_RETRY + 1))
@@ -1414,7 +1413,7 @@ jobs:
               fi
 
               FILENAME=$(basename "$FILE_PATH")
-              git commit -m "[AVASAM] Add: $FILENAME [skip ci]" --quiet 2>/dev/null || true
+              git commit -m "[SajjadRSH] Add: $FILENAME [skip ci]" --quiet 2>/dev/null || true
 
               echo "    Push attempt $RETRY/$MAX_RETRIES..."
               if timeout 120 git push origin HEAD:"$BRANCH" 2>&1; then
@@ -1458,7 +1457,7 @@ jobs:
                 done
 
                 if ! git diff --cached --quiet 2>/dev/null; then
-                  git commit -m "[AVASAM] Add batch of $BATCH_COUNT files [skip ci]" --quiet 2>/dev/null || true
+                  git commit -m "[SajjadRSH] Add batch of $BATCH_COUNT files [skip ci]" --quiet 2>/dev/null || true
 
                   local PUSH_RETRY=0
                   local PUSH_SUCCESS=false
@@ -1478,7 +1477,7 @@ jobs:
                         git add "$BF" 2>/dev/null || true
                       done
                       if ! git diff --cached --quiet 2>/dev/null; then
-                        git commit -m "[AVASAM] Add batch of $BATCH_COUNT files [skip ci]" --quiet 2>/dev/null || true
+                        git commit -m "[SajjadRSH] Add batch of $BATCH_COUNT files [skip ci]" --quiet 2>/dev/null || true
                       fi
                       sleep $((3 + RANDOM % 7))
                     fi
@@ -1513,7 +1512,7 @@ jobs:
               done
 
               if ! git diff --cached --quiet 2>/dev/null; then
-                git commit -m "[AVASAM] Add final batch [skip ci]" --quiet 2>/dev/null || true
+                git commit -m "[SajjadRSH] Add final batch [skip ci]" --quiet 2>/dev/null || true
 
                 local PUSH_RETRY=0
                 while [ $PUSH_RETRY -lt 5 ]; do
@@ -1532,7 +1531,7 @@ jobs:
                       git add "$BF" 2>/dev/null || true
                     done
                     if ! git diff --cached --quiet 2>/dev/null; then
-                      git commit -m "[AVASAM] Add final batch [skip ci]" --quiet 2>/dev/null || true
+                      git commit -m "[SajjadRSH] Add final batch [skip ci]" --quiet 2>/dev/null || true
                     fi
                   fi
                 done
@@ -1591,7 +1590,7 @@ jobs:
             git add videos/README.md
 
             if ! git diff --cached --quiet; then
-              git commit -m "[AVASAM] YouTube download [skip ci]"
+              git commit -m "[SajjadRSH] YouTube download [skip ci]"
 
               PUSH_RETRY=0
               while [ $PUSH_RETRY -lt 10 ]; do
@@ -1610,7 +1609,7 @@ jobs:
                   regenerate_master_readme
                   git add videos/README.md
                   if ! git diff --cached --quiet; then
-                    git commit -m "[AVASAM] YouTube download [skip ci]"
+                    git commit -m "[SajjadRSH] YouTube download [skip ci]"
                   fi
                 fi
               done
@@ -1633,7 +1632,7 @@ jobs:
             git add videos/README.md
 
             if ! git diff --cached --quiet 2>/dev/null; then
-              git commit -m "[AVASAM] Update video list [skip ci]" --quiet 2>/dev/null || true
+              git commit -m "[SajjadRSH] Update video list [skip ci]" --quiet 2>/dev/null || true
 
               PUSH_RETRY=0
               while [ $PUSH_RETRY -lt 5 ]; do
@@ -1652,5 +1651,5 @@ jobs:
           echo ""
           echo "=========================================="
           echo "All files pushed successfully!"
-          echo "made in AVASAM (https://avasam.ir)"
+          echo "created by SajjadRSH"
           echo "=========================================="
