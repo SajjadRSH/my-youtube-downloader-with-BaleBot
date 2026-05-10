@@ -152,7 +152,7 @@ jobs:
           mkdir -p "$BACKUP_DIR"
           echo "$BACKUP_DIR" > /tmp/backup_dir_path.txt
 
-          mkdir -p videos
+          # mkdir -p videos
           > /tmp/video_info.txt
 
           echo "SajjadRSH YouTube Downloader"
@@ -1255,10 +1255,12 @@ jobs:
                 -F "chat_id=${BALE_USER_ID}" \
                 -F "video=@${VIDEO_FILE}" \
                 -F "caption=✅ $FILE_NAME" \
-                -F "supports_streaming=true" \
+                -F "supports_streaming=false" \
                 --connect-timeout 300 \
                 --max-time 1800)
-              
+                
+              echo "🔍 API Response: $RESPONSE"
+
               if echo "$RESPONSE" | grep -q '"ok":true'; then
                 echo "✅ Upload successful: $FILE_NAME"
                 SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
@@ -1603,11 +1605,11 @@ jobs:
                   sleep $((3 + RANDOM % 7))
                   git fetch origin "$BRANCH"
                   git reset --hard origin/"$BRANCH"
-                  mkdir -p videos
-                  cp -r "$BACKUP_DIR"/* videos/
-                  git add -A videos/
-                  regenerate_master_readme
-                  git add videos/README.md
+                  # mkdir -p videos
+                  # cp -r "$BACKUP_DIR"/* videos/
+                  # git add -A videos/
+                  # regenerate_master_readme
+                  # git add videos/README.md
                   if ! git diff --cached --quiet; then
                     git commit -m "[SajjadRSH] YouTube download [skip ci]"
                   fi
