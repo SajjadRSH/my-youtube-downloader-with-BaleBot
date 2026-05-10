@@ -1403,8 +1403,8 @@ jobs:
                 echo "    Syncing with remote..."
                 git reset --hard origin/"$BRANCH" 2>/dev/null || true
 
-                mkdir -p videos
-                cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
+                # mkdir -p videos
+                # cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
               fi
 
               git add "$FILE_PATH" 2>/dev/null || true
@@ -1451,8 +1451,8 @@ jobs:
                 git fetch origin "$BRANCH" --quiet 2>/dev/null || true
                 git reset --hard origin/"$BRANCH" 2>/dev/null || true
 
-                mkdir -p videos
-                cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
+                # mkdir -p videos
+                # cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
 
                 for BF in "${BATCH_FILES[@]}"; do
                   git add "$BF" 2>/dev/null || true
@@ -1473,8 +1473,8 @@ jobs:
                       echo "    Batch push failed, attempt $PUSH_RETRY/5..."
                       git fetch origin "$BRANCH" --quiet 2>/dev/null || true
                       git reset --hard origin/"$BRANCH" 2>/dev/null || true
-                      mkdir -p videos
-                      cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
+                      # mkdir -p videos
+                      # cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
                       for BF in "${BATCH_FILES[@]}"; do
                         git add "$BF" 2>/dev/null || true
                       done
@@ -1506,8 +1506,8 @@ jobs:
 
               git fetch origin "$BRANCH" --quiet 2>/dev/null || true
               git reset --hard origin/"$BRANCH" 2>/dev/null || true
-              mkdir -p videos
-              cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
+              # mkdir -p videos
+              # cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
 
               for BF in "${BATCH_FILES[@]}"; do
                 git add "$BF" 2>/dev/null || true
@@ -1527,8 +1527,8 @@ jobs:
                     sleep $((3 + RANDOM % 7))
                     git fetch origin "$BRANCH" --quiet 2>/dev/null || true
                     git reset --hard origin/"$BRANCH" 2>/dev/null || true
-                    mkdir -p videos
-                    cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
+                    # mkdir -p videos
+                    # cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
                     for BF in "${BATCH_FILES[@]}"; do
                       git add "$BF" 2>/dev/null || true
                     done
@@ -1550,8 +1550,8 @@ jobs:
           git fetch origin "$BRANCH"
           git reset --hard origin/"$BRANCH"
 
-          mkdir -p videos
-          cp -r "$BACKUP_DIR"/* videos/
+          # mkdir -p videos
+          # cp -r "$BACKUP_DIR"/* videos/
 
           echo "Analyzing files to push..."
           ALL_FILES=()
@@ -1627,8 +1627,8 @@ jobs:
             echo "Pushing master README..."
             git fetch origin "$BRANCH" --quiet 2>/dev/null || true
             git reset --hard origin/"$BRANCH" 2>/dev/null || true
-            mkdir -p videos
-            cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
+            # mkdir -p videos
+            # cp -r "$BACKUP_DIR"/* videos/ 2>/dev/null || true
 
             regenerate_master_readme
             git add videos/README.md
