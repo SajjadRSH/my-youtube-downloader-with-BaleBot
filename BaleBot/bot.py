@@ -169,7 +169,7 @@ def trigger_github_workflow(
             'youtube_urls': youtube_url,
             'quality': quality,
             'download_subtitles': str(download_subtitles).lower(),
-            'telegram_user_id': str(user_id),
+            'user_id': str(user_id),
             'api_base_url': API_BASE_URL,  # Pass API base URL to workflow
             'bot_token': BOT_TOKEN  # Pass bot token to workflow
         }
